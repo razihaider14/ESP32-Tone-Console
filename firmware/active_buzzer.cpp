@@ -21,7 +21,7 @@ void activeBuzzerStart(int newOnTimes[], int newOffTimes[], int newToneCount, in
     if (newToneCount <= 0 || newToneCount > MAX_TONES) return;
     for (int i = 0; i < newToneCount; i++) {
         onTimes[i] = newOnTimes[i];
-        offTimes[i] = newOffTimes[i]
+        offTimes[i] = newOffTimes[i];
     }
     toneCount = newToneCount;
     repeatCount = newRepeatCount;
@@ -30,7 +30,7 @@ void activeBuzzerStart(int newOnTimes[], int newOffTimes[], int newToneCount, in
     isOnPhase = true;
     running = true;
     phaseStart = millis();
-    digitalWrite(PIN_ACTIVE_BUZZER, HIGH)
+    digitalWrite(PIN_ACTIVE_BUZZER, HIGH);
 }
 
 void activeBuzzerStop() {
@@ -38,13 +38,17 @@ void activeBuzzerStop() {
     digitalWrite(PIN_ACTIVE_BUZZER, LOW);
 }
 
-bool activeBuzzerUpdate() {
+bool activeBuzzerIsRunning() {
+    return running;
+}
+
+void activeBuzzerUpdate() {
     if (!running) return;
 
-    unsigned long new = millis();
+    unsigned long now = millis();
     unsigned long duration = isOnPhase ? onTimes[currentTone] : offTimes[currentTone];
     
-    if (now - phaseStart > duration) return;
+    if (now - phaseStart < duration) return;
 
     if (isOnPhase) {
         isOnPhase = false;
@@ -57,7 +61,7 @@ bool activeBuzzerUpdate() {
             currentTone = 0;
             currentRepeat++;
             if (currentRepeat >= repeatCount) {
-                activebuzzerStop();
+                activeBuzzerStop();
                 return;
             }
         }

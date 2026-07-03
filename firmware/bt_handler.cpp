@@ -18,7 +18,7 @@ bool btAvailable() {
             lineReady = true;
         }
         else {
-            lineBuffer += c 
+            lineBuffer += c ;
         }
 
         if (lineReady) break;

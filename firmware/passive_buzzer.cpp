@@ -18,9 +18,9 @@ void passiveBuzzerInit() {
     noTone(PIN_PASSIVE_BUZZER);
 }
 
-void passiveBuzzerStart(int newFrequencies[], int newOnTimes[], int newOffTimes, int newToneCount, int newRepeatCount) {
+void passiveBuzzerStart(int newFrequencies[], int newOnTimes[], int newOffTimes[], int newToneCount, int newRepeatCount) {
     if (newToneCount <= 0 || newToneCount > MAX_TONES) return;
-    for (int i = 0; i < newtoneCount; i++) {
+    for (int i = 0; i < newToneCount; i++) {
         frequencies[i] = newFrequencies[i];
         onTimes[i] = newOnTimes[i];
         offTimes[i] = newOffTimes[i];
@@ -32,7 +32,7 @@ void passiveBuzzerStart(int newFrequencies[], int newOnTimes[], int newOffTimes,
     isOnPhase = true;
     running = true;
     phaseStart = millis();
-    Tone(PIN_PASSIVE_BUZZER, frequencies[currentTone]);
+    tone(PIN_PASSIVE_BUZZER, frequencies[currentTone]);
 }
 
 void passiveBuzzerStop() {
@@ -66,7 +66,7 @@ void passiveBuzzerUpdate() {
             }
         }
         isOnPhase = true;
-        Tone(PIN_PASSIVE_BUZZER, frequencies[currentTone]);
+        tone(PIN_PASSIVE_BUZZER, frequencies[currentTone]);
         phaseStart = now;
     }
 }

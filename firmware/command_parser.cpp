@@ -131,7 +131,7 @@ void commandParserHandleLine(String line) {
 
         case ASK_ON: {
             int val;
-            if(!parseintSafe(line, val) || val <= 0) {
+            if(!parseIntSafe(line, val) || val <= 0) {
                 btPrintln("Please enter a valid duration in ms.");
                 return;
             }
