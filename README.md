@@ -1,7 +1,7 @@
 # ESP32 Tone Console
 
 ### Bluetooth-controlled buzzer sequencing for active and passive buzzers
-> A tiny ESP32 firmware that lets you buld custom beep/tone sequences entirely over Bluetooth serial, from any Bluetooth terminal app on your phone.
+> A tiny ESP32 firmware that lets you build custom beep/tone sequences entirely over Bluetooth serial, from any Bluetooth terminal app on your phone.
 
 ---
 
@@ -129,7 +129,7 @@ Done.
 
 ## Setup
 ### 1. Flash
-Open `firmware/firmware.ino` in Arduino IDE. No external libraries are required. Select you board and port, then flash the code into the ESP32.
+Open `firmware/firmware.ino` in Arduino IDE. No external libraries are required. Select your board and port, then flash the code into the ESP32.
 
 ### 2. Connect
 Pair your phone's Bluetooth with `ESP32-Tone-Console`. Open any BT serial terminal and connect to the same, and start typing commands.
