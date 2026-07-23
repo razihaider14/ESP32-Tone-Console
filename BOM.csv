@@ -1,0 +1,4 @@
+Item, Component, Quantity, Source
+1, ESP32 Dev Board, 1, https://electrobes.com/product/esp32-wroom-32-38-pins-wifibluetooth-mcu-module
+2, Active Buzzer, 1, https://electrobes.com/product/5v-active-piezo-buzzer
+3, Passive Buzzer, 1, https://electrobes.com/product/5v-passive-piezo-buzzer
