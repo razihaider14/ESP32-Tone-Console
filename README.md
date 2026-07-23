@@ -9,15 +9,14 @@
 
 - **Two Types**: active buzzer (on/off timing) and passive buzzer (on/off timing + per-tone frequency)
 - **Build Sequence**: specify number of tones, each with its own timing (and pitch, for passive buzzer), then a repeat count
-- **Non-blocking Playback**: driven entirely by `millis()`, never `delay()`; the console can accept `stop` at any point, including mid-sequence or mid-setup
 - **Cancel Anytime**: `stop` during setup returns to idle instead of finishing the prompts
-- **Bluetooth Serial (SPP)**: works with any generic BT terminal app, no companion app needed
+- **Bluetooth Serial**: works with any generic BT terminal app, no companion app needed
 
 ---
 
 ## Hardware
 
-- ESP32 (BT Classic capable)
+- ESP32
 - Active Buzzer
 - Passive Buzzer
 
@@ -32,23 +31,6 @@
 
 ---
 
-## Project Structure
-
-```
-ESP32-Tone-Console/
-├── firmware/
-│    ├── firmware.ino
-│    ├── config.h
-│    ├── bt_handler.h/.cpp
-│    ├── active_buzzer.h/.cpp
-│    ├── passive_buzzer.h/.cpp
-│    └── command_parser.h/.cpp
-├── README.md
-└── License
-```
-
----
-
 ## Command Reference
 
 | Command | Description |
@@ -57,27 +39,6 @@ ESP32-Tone-Console/
 | `passive` | Start building a sequence for the passive buzzer |
 | `stop` | Stop playback immediately, or cancel setup and return to idle |
 | `help` | List available commands |
-
----
-
-## Sequence Setup prompts
-
-**Active buzzer**, per tone:
-```
-How long ON (ms)?
-How long OFF (ms)?
-```
-**Passive buzzer**, per tone:
-```
-What frequency (Hz)?
-How long ON (ms)?
-How long OFF (ms)?
-```
-
-After all tones are entered, both are asked:
-```
-How many times to repeat?
-```
 
 ---
 
